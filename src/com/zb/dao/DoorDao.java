@@ -38,4 +38,24 @@ public class DoorDao {
         ps.executeUpdate();
         DBUtils.close(conn);
     }
+    public List<Door> showSale(){
+        try {
+            Connection connection = DBUtils.getConnectionByDatasource();
+            String sql = "select name,sale from tb_door";
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            Door door = null;
+            List<Door> list = new ArrayList<>();
+            while (rs.next()){
+                door = new Door();
+                door.setName(rs.getString("name"));
+                door.setSale(rs.getInt("sale"));
+                list.add(door);
+            }
+            return list;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 }

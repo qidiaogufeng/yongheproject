@@ -3,7 +3,7 @@ package com.zb.pojo;
 import java.sql.Timestamp;
 
 public class Order {
-    private int id;
+    private Integer id;
     private String doorname;
 
     public String getDoorname() {
@@ -14,15 +14,15 @@ public class Order {
         this.doorname = doorname;
     }
 
-    private int door_id;
+    private Integer door_id;
     private String order_no;
     private String order_type;
-    private int pnum;
+    private Integer pnum;
     private String cashier;
     private Timestamp order_time;
     private Timestamp pay_time;
     private String pay_type;
-    private double price;
+    private Double price;
 
     public int getId() {
         return id;
